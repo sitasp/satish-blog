@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
+<title>Hosting Hugo Site on GitHub Pages | Satish&#39;s Scribbles</title>
+<meta name="title" content="Hosting Hugo Site on GitHub Pages" />
+<meta name="description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions" />
+<meta name="author" content="" />
+<meta name="keywords" content="" />
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta property="og:title" content="Hosting Hugo Site on GitHub Pages" />
+<meta property="og:description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/host-hugo-blog-on-github-pages/" />
+
+<meta property="og:image" content="http://localhost:1313/images/social_card_bg_hu10083280876698994.webp"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2025-01-05T23:31:30+05:30" />
+<meta property="article:modified_time" content="2025-01-05T23:31:30+05:30" /><meta property="og:site_name" content="Satish&#39;s Scribbles" />
+<meta property="fb:admins" content="0000000000" />
+
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/images/social_card_bg_hu10083280876698994.webp"/>
+<meta name="twitter:title" content="Hosting Hugo Site on GitHub Pages"/>
+<meta name="twitter:description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions"/>
+<meta name="twitter:site" content="@www.x.com/alt_maximus"/>
+
+
+
+<meta itemprop="name" content="Hosting Hugo Site on GitHub Pages">
+<meta itemprop="description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions"><meta itemprop="datePublished" content="2025-01-05T23:31:30+05:30" />
+<meta itemprop="dateModified" content="2025-01-05T23:31:30+05:30" />
+<meta itemprop="wordCount" content="577">
+
+<meta itemprop="image" content="http://localhost:1313/images/social_card_bg_hu10083280876698994.webp"/>
+
+
+<meta itemprop="keywords" content="" />
+
+<meta name="referrer" content="no-referrer-when-downgrade" />
+
+  
+  <link href="/original.min.css" rel="stylesheet">
+
+  
+    
+    <link href="/syntax.min.css" rel="stylesheet">
+  
+
+  
+
+  
+</head>
+
+<body>
+  <header><a class="skip-link" href="#main-content">Skip to main content</a>
+
+<a href="/" class="title"><h1>Satish&#39;s Scribbles</h1></a>
+<nav>
+  <a href="/">Home</a>
+
+  <a href="/about/">About</a>
+
+  <a href="/blog/">Blog</a>
+
+  <a href="/contact/">Contact</a>
+
+<a href='http://localhost:1313/index.xml'>RSS</a>
+
+
+
+
+
+
+
+</nav>
+</header>
+  <main id="main-content">
+
+<h1>Hosting Hugo Site on GitHub Pages</h1>
+<p class="byline">
+  <time datetime='2025-01-05' pubdate>
+    Sunday, Jan 5, 2025
+  </time>
+  
+</p>
+
+<content>
+  <p>GitHub Pages provides an excellent free hosting solution for Hugo website. In this guide, We will walk through the process of setting up continuous deployment using GitHub Actions.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A Hugo website ready to deploy</li>
+<li>A GitHub account</li>
+<li>Git installed on local machine</li>
+<li>Basic familiarity with Git commands</li>
+</ul>
+<h2 id="step-1-prepare-repository">Step 1: Prepare Repository</h2>
+<ol>
+<li>
+<p>Create a new repository on GitHub named <code>foo.github.io</code></p>
+</li>
+<li>
+<p>Initialize Hugo project as a Git repository:</p>
+</li>
+</ol>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> my-hugo
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git init
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git add .
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git commit -m <span class="s2">&#34;Initial commit&#34;</span></span></span></code></pre></div><ol start="3">
+<li>Add GitHub repository as the remote origin:</li>
+</ol>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git remote add origin https://github.com/foo/foo.github.io.git</span></span></code></pre></div><h2 id="step-2-configure-hugo">Step 2: Configure Hugo</h2>
+<ol>
+<li>Update <code>config.toml</code> (or <code>config.yaml</code>) file. Make sure baseURL matches GitHub Pages URL:</li>
+</ol>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s2">&#34;https://foo.github.io/&#34;</span></span></span></code></pre></div><ol start="2">
+<li>Commit these changes:</li>
+</ol>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add config.toml
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;Update baseURL for GitHub Pages&#34;</span></span></span></code></pre></div><h2 id="step-3-set-up-github-actions">Step 3: Set Up GitHub Actions</h2>
+<ol>
+<li>Create a new directory structure in the repository:</li>
+</ol>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">mkdir -p .github/workflows</span></span></code></pre></div><ol start="2">
+<li>Create a new file named <code>.github/workflows/hugo.yaml</code> with the following content:</li>
+</ol>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy Hugo site to Pages</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;main&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w"></span><span class="nt">permissions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l">read</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span><span class="nt">pages</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">  </span><span class="nt">id-token</span><span class="p">:</span><span class="w"> </span><span class="l">write</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w"></span><span class="nt">concurrency</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;pages&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">  </span><span class="nt">cancel-in-progress</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w"></span><span class="nt">defaults</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">  </span><span class="nt">run</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">    </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="l">bash</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">  </span><span class="nt">build</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">    </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">25</span><span class="cl"><span class="w">      </span><span class="nt">HUGO_VERSION</span><span class="p">:</span><span class="w"> </span><span class="m">0.121.0</span><span class="w">
+</span></span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Hugo CLI</span><span class="w">
+</span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="sd">          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="sd">          &amp;&amp; sudo dpkg -i ${{ runner.temp }}/hugo.deb</span><span class="w">          
+</span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Dart Sass</span><span class="w">
+</span></span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">sudo snap install dart-sass</span><span class="w">
+</span></span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout</span><span class="w">
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
+</span></span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="w">          </span><span class="nt">submodules</span><span class="p">:</span><span class="w"> </span><span class="l">recursive</span><span class="w">
+</span></span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="w">          </span><span class="nt">fetch-depth</span><span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span></span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Setup Pages</span><span class="w">
+</span></span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">pages</span><span class="w">
+</span></span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/configure-pages@v4</span><span class="w">
+</span></span></span><span class="line"><span class="ln">41</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Build with Hugo</span><span class="w">
+</span></span></span><span class="line"><span class="ln">42</span><span class="cl"><span class="w">        </span><span class="nt">env</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">43</span><span class="cl"><span class="w">          </span><span class="nt">HUGO_ENVIRONMENT</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
+</span></span></span><span class="line"><span class="ln">44</span><span class="cl"><span class="w">          </span><span class="nt">HUGO_ENV</span><span class="p">:</span><span class="w"> </span><span class="l">production</span><span class="w">
+</span></span></span><span class="line"><span class="ln">45</span><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="sd">          hugo \
+</span></span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="sd">            --gc \
+</span></span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="sd">            --minify \
+</span></span></span><span class="line"><span class="ln">49</span><span class="cl"><span class="sd">            --baseURL &#34;${{ steps.pages.outputs.base_url }}/&#34;</span><span class="w">          
+</span></span></span><span class="line"><span class="ln">50</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Upload artifact</span><span class="w">
+</span></span></span><span class="line"><span class="ln">51</span><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/upload-pages-artifact@v2</span><span class="w">
+</span></span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">53</span><span class="cl"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">./public</span><span class="w">
+</span></span></span><span class="line"><span class="ln">54</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">55</span><span class="cl"><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">56</span><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">57</span><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">github-pages</span><span class="w">
+</span></span></span><span class="line"><span class="ln">58</span><span class="cl"><span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="l">${{ steps.deployment.outputs.page_url }}</span><span class="w">
+</span></span></span><span class="line"><span class="ln">59</span><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
+</span></span></span><span class="line"><span class="ln">60</span><span class="cl"><span class="w">    </span><span class="nt">needs</span><span class="p">:</span><span class="w"> </span><span class="l">build</span><span class="w">
+</span></span></span><span class="line"><span class="ln">61</span><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">62</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to GitHub Pages</span><span class="w">
+</span></span></span><span class="line"><span class="ln">63</span><span class="cl"><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">deployment</span><span class="w">
+</span></span></span><span class="line"><span class="ln">64</span><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/deploy-pages@v3</span></span></span></code></pre></div><h2 id="step-4-enable-github-pages">Step 4: Enable GitHub Pages</h2>
+<ol>
+<li>Go to the repository settings on GitHub</li>
+<li>Navigate to &ldquo;Pages&rdquo; in the sidebar</li>
+<li>Under &ldquo;Build and deployment&rdquo;:
+<ul>
+<li>Source: Select &ldquo;GitHub Actions&rdquo;</li>
+<li>Branch: main</li>
+</ul>
+</li>
+</ol>
+<h2 id="step-5-push-the-changes">Step 5: Push the Changes</h2>
+<p>Push all the changes to GitHub:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add .
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;Add GitHub Actions workflow&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git push -u origin main</span></span></code></pre></div><h2 id="step-6-verify-deployment">Step 6: Verify Deployment</h2>
+<ol>
+<li>Go to the repository&rsquo;s &ldquo;Actions&rdquo; tab on GitHub</li>
+<li>We should see our workflow running</li>
+<li>Once completed, visit <code>https://foo.github.io</code> to see our site live</li>
+</ol>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If our site isn&rsquo;t displaying correctly:</p>
+<ol>
+<li>Check the GitHub Actions logs for any errors</li>
+<li>Verify our baseURL in the Hugo configuration</li>
+<li>Make sure our repository name exactly matches <code>foo.github.io</code></li>
+<li>Confirm that GitHub Pages is enabled and using GitHub Actions</li>
+</ol>
+<h2 id="maintaining-site">Maintaining Site</h2>
+<ol>
+<li>Make changes to the content locally</li>
+<li>Commit the changes</li>
+<li>Push to GitHub</li>
+</ol>
+<p>The GitHub Action will automatically build and deploy the updates.</p>
+<h2 id="best-practices">Best Practices</h2>
+<ol>
+<li>Always test changes locally using <code>hugo server</code> before pushing</li>
+<li>Use branch-based workflow for major changes</li>
+<li>Keep our Hugo version in the workflow file up to date</li>
+<li>Remember to push the theme submodules if we&rsquo;re using them</li>
+</ol>
+<h2 id="thats-it">That’s It!</h2>
+<p>We now have a fully automated deployment pipeline for our Hugo site using GitHub Pages and GitHub Actions. Any changes we push to our main branch will automatically trigger a new build and deployment.</p>
+<p>Please refer to the <a href="https://gohugo.io/documentation/">official Hugo documentation</a> and <a href="https://docs.github.com/en/pages">GitHub Pages documentation</a> for more detailed information.</p>
+
+</content>
+<p>
+  
+</p>
+
+
+  <p>
+    <a href='mailto:satish.patra@protonmail.com?subject=Reply%20to%20"Hosting%20Hugo%20Site%20on%20GitHub%20Pages"'>
+      Reply to this post by email ↪
+    </a>
+  </p>
+
+
+
+  </main>
+  <footer><footer>
+  <p>© 2025 Satish Patra ; Powered by <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.com/clente/hugo-bearcub">Bear Cub</a></p>
+</footer></footer>
+
+    
+</body>
+
+</html>
