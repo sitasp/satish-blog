@@ -1,6 +1,6 @@
 +++
 date = '2025-01-05T20:09:18+05:30'
-draft = true
+draft = false
 title = 'Create Personal Blog Using Hugo'
 +++
 
