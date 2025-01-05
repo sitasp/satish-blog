@@ -9,8 +9,35 @@
     <managingEditor>satish.patra@protonmail.com (Satish Patra)</managingEditor>
     <webMaster>satish.patra@protonmail.com (Satish Patra)</webMaster>
     <copyright>Satish Patra</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 17:45:38 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2025 20:09:18 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Personal Blog Using Hugo</title>
+      <link>http://localhost:1313/post/create-personal-blog-using-hugo/</link>
+      <pubDate>Sun, 05 Jan 2025 20:09:18 +0530</pubDate><author>satish.patra@protonmail.com (Satish Patra)</author>
+      <guid>http://localhost:1313/post/create-personal-blog-using-hugo/</guid>
+      <description>&lt;h2 id=&#34;what-is-hugo&#34;&gt;What is Hugo?&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Hugo is a fast and flexible &lt;strong&gt;static site generator&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Offers a wide range of &lt;strong&gt;cool themes&lt;/strong&gt; to customize your site.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Write in Markdown&lt;/strong&gt; and see your content rendered beautifully on your website.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;steps-to-build-your-blog&#34;&gt;Steps to Build Your Blog&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-install-hugo&#34;&gt;1. Install Hugo&lt;/h3&gt;&#xA;&lt;p&gt;Install Hugo on your system:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Linux/macOS&lt;/strong&gt;:&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;brew install hugo&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <content:encoded><![CDATA[<h2 id="what-is-hugo">What is Hugo?</h2>
+<ol>
+<li>Hugo is a fast and flexible <strong>static site generator</strong>.</li>
+<li>Offers a wide range of <strong>cool themes</strong> to customize your site.</li>
+<li><strong>Write in Markdown</strong> and see your content rendered beautifully on your website.</li>
+</ol>
+<hr>
+<h2 id="steps-to-build-your-blog">Steps to Build Your Blog</h2>
+<h3 id="1-install-hugo">1. Install Hugo</h3>
+<p>Install Hugo on your system:</p>
+<ul>
+<li><strong>Linux/macOS</strong>:
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">brew install hugo</span></span></code></pre></div></li>
+</ul>
+]]></content:encoded>
+    </item>
     <item>
       <title>Hey It&#39;s me, Satish! Let&#39;s talk</title>
       <link>http://localhost:1313/post/whoami/</link>

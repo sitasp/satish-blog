@@ -9,8 +9,107 @@
     <managingEditor>satish.patra@protonmail.com (Satish Patra)</managingEditor>
     <webMaster>satish.patra@protonmail.com (Satish Patra)</webMaster>
     <copyright>Satish Patra</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 17:45:38 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2025 20:09:18 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Create Personal Blog Using Hugo</title>
+      <link>http://localhost:1313/post/create-personal-blog-using-hugo/</link>
+      <pubDate>Sun, 05 Jan 2025 20:09:18 +0530</pubDate><author>satish.patra@protonmail.com (Satish Patra)</author>
+      <guid>http://localhost:1313/post/create-personal-blog-using-hugo/</guid>
+      <description>&lt;h2 id=&#34;what-is-hugo&#34;&gt;What is Hugo?&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Hugo is a fast and flexible &lt;strong&gt;static site generator&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;li&gt;Offers a wide range of &lt;strong&gt;cool themes&lt;/strong&gt; to customize your site.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Write in Markdown&lt;/strong&gt; and see your content rendered beautifully on your website.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;steps-to-build-your-blog&#34;&gt;Steps to Build Your Blog&lt;/h2&gt;&#xA;&lt;h3 id=&#34;1-install-hugo&#34;&gt;1. Install Hugo&lt;/h3&gt;&#xA;&lt;p&gt;Install Hugo on your system:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Linux/macOS&lt;/strong&gt;:&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;cl&#34;&gt;brew install hugo&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Windows&lt;/strong&gt;: Download the executable from Hugo&amp;rsquo;s GitHub releases. (need to add the link here)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;2-create-a-new-website-project&#34;&gt;2. Create a New Website Project&lt;/h3&gt;&#xA;&lt;p&gt;Run the following command to create your project:&lt;/p&gt;</description>
+      <content:encoded><![CDATA[<h2 id="what-is-hugo">What is Hugo?</h2>
+<ol>
+<li>Hugo is a fast and flexible <strong>static site generator</strong>.</li>
+<li>Offers a wide range of <strong>cool themes</strong> to customize your site.</li>
+<li><strong>Write in Markdown</strong> and see your content rendered beautifully on your website.</li>
+</ol>
+<h2 id="steps-to-build-your-blog">Steps to Build Your Blog</h2>
+<h3 id="1-install-hugo">1. Install Hugo</h3>
+<p>Install Hugo on your system:</p>
+<ul>
+<li><strong>Linux/macOS</strong>:</li>
+</ul>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">brew install hugo</span></span></code></pre></div><ul>
+<li><strong>Windows</strong>: Download the executable from Hugo&rsquo;s GitHub releases. (need to add the link here)</li>
+</ul>
+<h3 id="2-create-a-new-website-project">2. Create a New Website Project</h3>
+<p>Run the following command to create your project:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo new site my-blog </span></span></code></pre></div><p>Navigate into the project folder:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> my-blog</span></span></code></pre></div><p>Setup <code>hugo.toml</code> file:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s1">&#39;https://example.org/&#39;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nx">languageCode</span> <span class="p">=</span> <span class="s1">&#39;en-us&#39;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nx">title</span> <span class="p">=</span> <span class="s1">&#39;My Blogs&#39;</span></span></span></code></pre></div><h3 id="3-install-a-theme-lets-install-xmin-theme">3. Install a theme; Let&rsquo;s install <code>xmin</code> theme</h3>
+<p>The <code>xmin</code> theme is a minimalist theme with essential features. Add it to your project:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git init
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git submodule add https://github.com/yihui/hugo-xmin themes/xmin</span></span></code></pre></div><p>Update the <code>hugo.toml</code> file to use the theme:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">theme</span> <span class="p">=</span> <span class="s2">&#34;xmin&#34;</span></span></span></code></pre></div><h3 id="4-create-posts-in-markdown">4. Create Posts in Markdown</h3>
+<p>Create your first post:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo new posts/first-post.md</span></span></code></pre></div><p>Edit the file in <code>content/posts/first-post.md</code>:</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="ln">1</span><span class="cl">---
+</span></span><span class="line"><span class="ln">2</span><span class="cl">title: &#34;First Post&#34;
+</span></span><span class="line"><span class="ln">3</span><span class="cl">date: 2025-01-01
+</span></span><span class="line"><span class="ln">4</span><span class="cl">draft: false
+</span></span><span class="line"><span class="ln">5</span><span class="cl">---
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl">Welcome to my blog! This is my first post using Hugo.</span></span></code></pre></div><h3 id="5-build-and-run-your-blog">5. Build and Run Your Blog</h3>
+<p>Run a local server to preview your blog (in development mode):</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server -D</span></span></code></pre></div><p>Run a local server to preview your blog (in production mode):</p>
+
+
+
+
+
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">hugo server</span></span></code></pre></div><p>Access it in your browser at http://localhost:1313.</p>
+<h2 id="thats-it">That’s It!</h2>
+<p>Minimalist blog using the xmin theme is ready to go.
+Start writing, customize, and share your stories with the world. 🚀</p>
+]]></content:encoded>
+    </item>
     <item>
       <title>Hey It&#39;s me, Satish! Let&#39;s talk</title>
       <link>http://localhost:1313/post/whoami/</link>

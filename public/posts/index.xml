@@ -9,17 +9,15 @@
     <managingEditor>satish.patra@protonmail.com (Satish Patra)</managingEditor>
     <webMaster>satish.patra@protonmail.com (Satish Patra)</webMaster>
     <copyright>Satish Patra</copyright>
-    <lastBuildDate>Sun, 05 Jan 2025 17:45:38 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jan 2025 20:08:56 +0530</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Scribble</title>
-      <link>http://localhost:1313/posts/my-first-post/</link>
-      <pubDate>Sun, 05 Jan 2025 17:45:38 +0530</pubDate><author>satish.patra@protonmail.com (Satish Patra)</author>
-      <guid>http://localhost:1313/posts/my-first-post/</guid>
-      <description>Just a random scribble</description>
-      <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
-<p>This is <strong>bold</strong> text, and this is <em>emphasized</em> text.</p>
-]]></content:encoded>
+      <title>Create Personal Blog Using Hugo</title>
+      <link>http://localhost:1313/posts/create-personal-blog-using-hugo/</link>
+      <pubDate>Sun, 05 Jan 2025 20:08:56 +0530</pubDate><author>satish.patra@protonmail.com (Satish Patra)</author>
+      <guid>http://localhost:1313/posts/create-personal-blog-using-hugo/</guid>
+      <description></description>
+      <content:encoded><![CDATA[]]></content:encoded>
     </item>
   </channel>
 </rss>

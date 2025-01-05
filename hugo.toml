@@ -64,7 +64,7 @@ enableRobotsTXT = true
   # "herman". The former is what you see on Bear Cub's demo (an optimized
   # version of Hugo Bear Blog), while the latter has a more modern look based on
   # Herman Martinus's version of the Blogster Minimal theme for Astro.
-  themeStyle = "herman"
+  themeStyle = "original"
 
   # (EXPERIMENTAL) This theme is capable of dynamically generating social cards
   # for posts that don't have `images` defined in their front matter; By setting
