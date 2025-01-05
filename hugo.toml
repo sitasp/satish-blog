@@ -97,7 +97,7 @@ enableRobotsTXT = true
   [[menu.main]]
     identifier = "about"
     name = "About"
-    url = "/about/"
+    url = "/"
     weight = 2
 
   [[menu.main]]
