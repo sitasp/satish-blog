@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on Satish&#39;s Scribbles</title>
+    <link>http://localhost:1313/post/</link>
+    <description>Recent content in Posts on Satish&#39;s Scribbles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <managingEditor>satish.patra@protonmail.com (Satish Patra)</managingEditor>
+    <webMaster>satish.patra@protonmail.com (Satish Patra)</webMaster>
+    <copyright>Satish Patra</copyright>
+    <lastBuildDate>Sun, 05 Jan 2025 17:45:38 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hey It&#39;s me, Satish! Let&#39;s talk</title>
+      <link>http://localhost:1313/post/whoami/</link>
+      <pubDate>Sun, 05 Jan 2025 17:45:38 +0530</pubDate><author>satish.patra@protonmail.com (Satish Patra)</author>
+      <guid>http://localhost:1313/post/whoami/</guid>
+      <description>A short introduction about myself and what I do</description>
+      <content:encoded><![CDATA[<h2 id="introduction">Introduction</h2>
+<p>This is <strong>bold</strong> text, and this is <em>emphasized</em> text.</p>
+]]></content:encoded>
+    </item>
+  </channel>
+</rss>
