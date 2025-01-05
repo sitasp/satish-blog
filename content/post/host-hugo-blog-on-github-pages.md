@@ -2,7 +2,7 @@
 title = "Hosting Hugo Site on GitHub Pages"
 date = '2025-01-05T23:31:30+05:30'
 description = "A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions"
-draft = true
+draft = false
 +++
 
 GitHub Pages provides an excellent free hosting solution for Hugo website. In this guide, We will walk through the process of setting up continuous deployment using GitHub Actions.
