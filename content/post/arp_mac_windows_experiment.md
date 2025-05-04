@@ -1,12 +1,28 @@
 +++
-title = "Exploring ARP: Connecting My MacBook and Windows PC"
+title = "One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network"
+description = "A Guide To Get My Mac and Windows Machines Talking Over ARP" 
 date = "2025-05-04"
 tags = ['NetworkingBasics', 'ARP', 'MacAndWindows', 'TechExperiment', 'HomeLab']
 +++
 
-Sometimes I get curious about the basics — like, really basic.
+I have recently taken interest in networking. 
+I was exploring how ARP works and came across an informative video from PowerCert YouTube channel.
 
-Even though I work with higher-level tools every day, I wanted to step back and understand how two of my own machines talk to each other on the network, right down at the ARP level. This post is a walk-through of that little experiment: no fancy tools, no external scripts — just the commands you can run on macOS and Windows to watch devices discover each other.
+Link to the video: https://www.youtube.com/watch?v=cn8Zxh9bPio
+
+### Short Summary of ARP 
+ARP is used for translating IP addresses to MAC addresses, which is crucial for devices to communicate on a local network.
+
+Before a machine X tries to send some packet to machine Y, machine X needs MAC address of machine Y. So machine X will invoke ARP to get the MAC address of machine Y.
+
+### One Step Further
+#### ARP Cache
+Every machine has ARP cache. 
+When a machine receives an ARP request, it will check its ARP cache to see if it already has the MAC address for the requested IP address. If it does, it will respond with the MAC address. If not, it will send out an ARP request to the network.
+
+So in this blog, I am trying to decipher how does ARP cache between two devices and any scope for communication between both of them.
+
+*Note:* Both the devices are connected to the same network i.e. home wi-fi network.
 
 ---
 
@@ -167,10 +183,10 @@ arp -a
 
 ## Final Thoughts
 
-I find these small network experiments satisfying because they remind me how much is happening under the hood every time we casually load a webpage or sync a file. If you try something similar on your own machines, you might notice differences depending on your network, firewall, or even your OS version — and that’s part of the fun.
+I enjoyed digging into the rabbit hole and experimenting with ARP.
 
 Next time, I’m planning to dig a little deeper, maybe exploring how firewall rules affect ARP or how to sniff these packets directly.
 
 If that sounds interesting, let me know — I’d love to share the next round of findings!
 
-You can reach out to me at [sitasp](https://twitter.com/sitasp) on Twitter.
+You can reach out to me at [sitasp0](https://twitter.com/sitasp0) on Twitter.
