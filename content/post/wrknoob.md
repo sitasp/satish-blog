@@ -54,7 +54,7 @@ I created a Python CLI tool that:
 
 ### Screenshot
 
-![wrknoob demo screenshot](./social_card_bg_hu619151297179642943.png)
+![wrknoob demo screenshot](/images/wrknoob-screenshot.png)
 
 > Above: Results table in terminal and corresponding plot
 
