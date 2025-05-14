@@ -38,8 +38,9 @@ enableRobotsTXT = true
   # The description of your website
   description = "I scribble here."
 
+  favicon = false
   # The path to your favicon
-  favicon = "images/favicon.png"
+  # favicon = "images/favicon.png"
 
   # These images will show up when services want to generate a preview of a link
   # to your site. Ignored if `generateSocialCard = true`. For more information
