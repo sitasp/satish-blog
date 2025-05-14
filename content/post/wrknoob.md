@@ -2,7 +2,7 @@
 title = "Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob`"
 description = "Load testing seemed strange to me, so I built a CLI to make it easier."
 date = "2025-05-14"
-tags = ['LoadTesting', 'load-testing]
+tags = ['LoadTesting', 'load-testing']
 +++
 
 Lately, I’ve been tuning a Quarkus backend and got curious: *How many concurrent requests can this thing actually handle?* That’s when I stumbled upon [`wrk`](https://github.com/wg/wrk), a modern HTTP benchmarking tool that’s fast and flexible — but also a little unfriendly if you're just starting out.
