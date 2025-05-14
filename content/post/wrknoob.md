@@ -54,7 +54,7 @@ I created a Python CLI tool that:
 
 ### Screenshot
 
-![wrknoob demo screenshot](./demo.png)
+![wrknoob demo screenshot](./social_card_bg_hu619151297179642943.png)
 
 > Above: Results table in terminal and corresponding plot
 
@@ -116,7 +116,7 @@ Load testing felt like a mysterious black box — but writing `wrknoob` helped m
 
 ### Final Thoughts
 
-If you're testing your APIs, especially on localhost, `wrknoob` helps you **benchmark smarter** without sweating over `wrk` flags. It’s not meant for enterprise-scale simulation, but it’s perfect for developers experimenting with performance.
+If you're testing your APIs, especially on localhost, `wrknoob` helps you **benchmark easier** without sweating over `wrk` flags. It’s not meant for enterprise-scale simulation, but it’s perfect for developers experimenting with performance.
 
 Check out the repo [here](https://github.com/sitasp/wrknoob), and feel free to open issues or PRs!
 
