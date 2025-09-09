@@ -1,7 +1,7 @@
 +++
 title = "Deepening My SSTI Knowledge: From Study to a Root-Me RCE"
 description = "A journey from studying the theory of Server-Side Template Injection (SSTI) to applying it to solve a Java/FreeMarker challenge on Root-Me."
-date = "2025-09-10"
+date = "2025-09-09"
 draft = false
 tags = ["SSTI", "RootMe", "Cybersecurity", "Java", "FreeMarker", "RCE"]
 +++
