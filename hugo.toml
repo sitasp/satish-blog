@@ -1,7 +1,7 @@
 baseURL = 'https://satishpatra.com/'
 languageCode = 'en-us'
 title = 'My Scribbles'
-theme = 'hugo-blog-awesome'
+theme = 'hugo-bearcub'
 
 
 
