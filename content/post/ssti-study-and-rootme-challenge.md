@@ -1,5 +1,5 @@
 +++
-title = "Deepening My SSTI Knowledge: From Study to a Root-Me RCE"
+title = "Deepening My SSTI Knowledge: Java SSTI on Root-Me"
 description = "A journey from studying the theory of Server-Side Template Injection (SSTI) to applying it to solve a Java/FreeMarker challenge on Root-Me."
 date = "2025-09-09"
 draft = false
