@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob` | Satish&#39;s Scribbles</title>
+<meta property="og:title" content="Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob` | Satish&#39;s Scribbles" />
+<meta name="twitter:title" content="Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob` | Satish&#39;s Scribbles" />
+<meta itemprop="name" content="Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob` | Satish&#39;s Scribbles" />
+<meta name="application-name" content="Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob` | Satish&#39;s Scribbles" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="Load testing seemed strange to me, so I built a CLI to make it easier.">
+<meta itemprop="description" content="Load testing seemed strange to me, so I built a CLI to make it easier." />
+<meta property="og:description" content="Load testing seemed strange to me, so I built a CLI to make it easier." />
+<meta name="twitter:description" content="Load testing seemed strange to me, so I built a CLI to make it easier." />
+
+<meta property="og:locale" content="en-US" />
+<meta name="language" content="en-US" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/wrknoob/" title="en-US 🇺🇸" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.150.0">
+
+    
+    <meta property="og:url" content="http://localhost:1313/post/wrknoob/">
+  <meta property="og:site_name" content="Satish&#39;s Scribbles">
+  <meta property="og:title" content="Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob`">
+  <meta property="og:description" content="Load testing seemed strange to me, so I built a CLI to make it easier.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-05-14T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-14T00:00:00+00:00">
+    <meta property="article:tag" content="LoadTesting">
+    <meta property="article:tag" content="Load-Testing">
+    <meta property="og:image" content="http://localhost:1313/images/share.webp">
+        <meta property="fb:admins" content="0000000000">
+
+
+    
+    
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.webp">
+  <meta name="twitter:title" content="Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob`">
+  <meta name="twitter:description" content="Load testing seemed strange to me, so I built a CLI to make it easier.">
+      <meta name="twitter:site" content="@www.x.com/alt_maximus">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/wrknoob/">
+    <link href="/style.min.e390ba7da26222f4dc42a349955d76dbbe44e5ce2535a43de5a70633a0a9ec3c.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Blog
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/contact/">
+                        Contact
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob`</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-05-14T00:00:00&#43;00:00" itemprop="datePublished"> Wednesday, May 14, 2025 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p>Lately, I’ve been tuning a Quarkus backend and got curious: <em>How many concurrent requests can this thing actually handle?</em> That’s when I stumbled upon <a href="https://github.com/wg/wrk"><code>wrk</code></a>, a modern HTTP benchmarking tool that’s fast and flexible — but also a little unfriendly if you&rsquo;re just starting out.</p>
+<p>So I built a wrapper: <strong><code>wrknoob</code></strong> — a simple, noob-friendly Python CLI that wraps around <code>wrk</code>, runs structured load tests, and shows beautiful terminal tables and plots. Here’s how it went.</p>
+<hr>
+<h3 id="the-problem">The Problem</h3>
+<p>I could run commands like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">wrk -t8 -c100 -d15s http://localhost:8080/hello
+</span></span></code></pre></div><p>But over time, I wanted:</p>
+<ul>
+<li>To <strong>test across multiple concurrency levels</strong></li>
+<li>To <strong>automatically visualize</strong> requests/sec and latency</li>
+<li>To <strong>save results to CSV</strong></li>
+<li>To avoid flipping between notes and terminal</li>
+</ul>
+<p>I didn’t want a full-fledged Grafana dashboard or a k6 setup — just something <strong>quick, scriptable, and pretty.</strong></p>
+<hr>
+<h2 id="enter-wrknoob">Enter <code>wrknoob</code></h2>
+<p>I created a Python CLI tool that:</p>
+<p>✅ Asks for input parameters interactively<br>
+✅ Runs <code>wrk</code> for each concurrency level<br>
+✅ Parses and displays the output beautifully with <a href="https://github.com/Textualize/rich">rich</a><br>
+✅ Plots graphs using <code>matplotlib</code><br>
+✅ Can save results to CSV and images</p>
+<hr>
+<h3 id="features-in-a-nutshell">Features in a Nutshell</h3>
+<ul>
+<li>🎛️ Prompt-based test configuration</li>
+<li>📊 Graph of requests/sec across concurrencies</li>
+<li>📉 Latency trend analysis</li>
+<li>🧾 Rich terminal table for results</li>
+<li>💾 Export to <code>report.csv</code> and <code>plot.png</code></li>
+</ul>
+<hr>
+<h3 id="screenshot">Screenshot</h3>
+<p><img src="/images/wrknoob-screenshot.png" alt="wrknoob demo screenshot"></p>
+<blockquote>
+<p>Above: Results table in terminal and corresponding plot</p></blockquote>
+<hr>
+<h3 id="installation">Installation</h3>
+<p>You’ll need Python 3.8+ and <code>wrk</code> installed. On macOS:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">brew install wrk
+</span></span></code></pre></div><p>Then:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/sitasp/wrknoob.git
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> wrknoob
+</span></span><span class="line"><span class="ln">3</span><span class="cl">python3 -m venv .venv
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="nb">source</span> .venv/bin/activate
+</span></span><span class="line"><span class="ln">5</span><span class="cl">pip install -r requirements.txt
+</span></span></code></pre></div><p>Run with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">python wrknoob.py
+</span></span></code></pre></div><hr>
+<h3 id="sample-run">Sample Run</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">Target URL: http://localhost:8080/hello
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Test Duration <span class="o">(</span>e.g., 10s<span class="o">)</span>: <span class="m">10</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">Threads: <span class="m">4</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">Concurrent Connections <span class="o">(</span>comma-separated<span class="o">)</span>: 10,25,50,100
+</span></span><span class="line"><span class="ln">5</span><span class="cl">Show Graph? <span class="o">[</span>y/n<span class="o">]</span>: y
+</span></span><span class="line"><span class="ln">6</span><span class="cl">Save Report to CSV? <span class="o">[</span>y/n<span class="o">]</span>: y
+</span></span></code></pre></div><p>Output:</p>
+<ul>
+<li><code>report.csv</code> — with columns like concurrency, req/sec, latency</li>
+<li><code>plot.png</code> — a visual trend of performance</li>
+</ul>
+<hr>
+<h3 id="why-i-built-this">Why I Built This</h3>
+<p>Load testing felt like a mysterious black box — but writing <code>wrknoob</code> helped me understand:</p>
+<ul>
+<li>The relationship between <strong>latency and concurrency</strong></li>
+<li>How <strong>saturation</strong> begins to degrade performance</li>
+<li>That <strong>high req/sec != efficient</strong> if latency spikes</li>
+</ul>
+<hr>
+<h3 id="final-thoughts">Final Thoughts</h3>
+<p>If you&rsquo;re testing your APIs, especially on localhost, <code>wrknoob</code> helps you <strong>benchmark easier</strong> without sweating over <code>wrk</code> flags. It’s not meant for enterprise-scale simulation, but it’s perfect for developers experimenting with performance.</p>
+<p>Check out the repo <a href="https://github.com/sitasp/wrknoob">here</a>, and feel free to open issues or PRs!</p>
+<p>Happy benchmarking!</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2025 Satish Patra.
+        
+    </small>
+</footer>
+
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

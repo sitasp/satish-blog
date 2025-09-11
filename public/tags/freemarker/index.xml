@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FreeMarker on Satish&#39;s Scribbles</title>
+    <link>http://localhost:1313/tags/freemarker/</link>
+    <description>Recent content in FreeMarker on Satish&#39;s Scribbles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Satish Patra</copyright>
+    <lastBuildDate>Tue, 09 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/freemarker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deepening My SSTI Knowledge: Java SSTI on Root-Me</title>
+      <link>http://localhost:1313/post/ssti-study-and-rootme-challenge/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/ssti-study-and-rootme-challenge/</guid>
+      
+      <description>&lt;p&gt;After my first taste of Server-Side Template Injection (SSTI) with the PicoCTF challenge, I was hooked. It was a relatively straightforward introduction, and it left me wanting to learn more. This post documents my journey of diving deeper into SSTI, from studying the theory to solving a more complex challenge on Root-Me.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;broadening-my-ssti-understanding&#34;&gt;Broadening My SSTI Understanding&lt;/h2&gt;
+&lt;p&gt;I started by consuming as much information as I could find on SSTI. Here are some of the resources I found most helpful:&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

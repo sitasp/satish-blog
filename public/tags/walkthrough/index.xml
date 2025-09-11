@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Walkthrough on Satish&#39;s Scribbles</title>
+    <link>http://localhost:1313/tags/walkthrough/</link>
+    <description>Recent content in Walkthrough on Satish&#39;s Scribbles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Satish Patra</copyright>
+    <lastBuildDate>Thu, 11 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/walkthrough/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>From Detection to Flag: Python Jinja2 SSTI on Root-Me</title>
+      <link>http://localhost:1313/post/rootme-jinja2-ssti-walkthrough/</link>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/rootme-jinja2-ssti-walkthrough/</guid>
+      
+      <description>&lt;p&gt;I recently tackled a fun Server-side Template Injection (SSTI) challenge on Root-Me and wanted to document my process. This post follows my journey from initial detection to crafting a reliable, context-free payload to gain code execution.&lt;/p&gt;
+&lt;h2 id=&#34;the-challenge-python-ssti-introduction&#34;&gt;The Challenge: Python SSTI Introduction&lt;/h2&gt;
+&lt;p&gt;The goal was to solve the &amp;ldquo;Python - Server-side Template Injection Introduction&amp;rdquo; challenge on &lt;a href=&#34;https://www.root-me.org/en/Challenges/Web-Server/Python-Server-side-Template-Injection-Introduction?lang=en&#34;&gt;Root-me.org&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;-setup-&#34;&gt;&amp;laquo; SETUP &amp;raquo;&lt;/h3&gt;
+&lt;p&gt;I started by loading the challenge environment and intercepting the requests using Caido. The application allows you to preview content submitted through a form.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

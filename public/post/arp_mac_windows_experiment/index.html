@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network | Satish&#39;s Scribbles</title>
+<meta property="og:title" content="One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network | Satish&#39;s Scribbles" />
+<meta name="twitter:title" content="One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network | Satish&#39;s Scribbles" />
+<meta itemprop="name" content="One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network | Satish&#39;s Scribbles" />
+<meta name="application-name" content="One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network | Satish&#39;s Scribbles" />
+<meta property="og:site_name" content="" />
+
+<meta name="description" content="A Guide To Get My Mac and Windows Machines Talking Over ARP">
+<meta itemprop="description" content="A Guide To Get My Mac and Windows Machines Talking Over ARP" />
+<meta property="og:description" content="A Guide To Get My Mac and Windows Machines Talking Over ARP" />
+<meta name="twitter:description" content="A Guide To Get My Mac and Windows Machines Talking Over ARP" />
+
+<meta property="og:locale" content="en-US" />
+<meta name="language" content="en-US" />
+
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/arp_mac_windows_experiment/" title="en-US 🇺🇸" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.150.0">
+
+    
+    <meta property="og:url" content="http://localhost:1313/post/arp_mac_windows_experiment/">
+  <meta property="og:site_name" content="Satish&#39;s Scribbles">
+  <meta property="og:title" content="One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network">
+  <meta property="og:description" content="A Guide To Get My Mac and Windows Machines Talking Over ARP">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-05-04T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-05-04T00:00:00+00:00">
+    <meta property="article:tag" content="NetworkingBasics">
+    <meta property="article:tag" content="ARP">
+    <meta property="article:tag" content="MacAndWindows">
+    <meta property="article:tag" content="TechExperiment">
+    <meta property="article:tag" content="HomeLab">
+    <meta property="og:image" content="http://localhost:1313/images/share.webp">
+        <meta property="fb:admins" content="0000000000">
+
+
+    
+    
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.webp">
+  <meta name="twitter:title" content="One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network">
+  <meta name="twitter:description" content="A Guide To Get My Mac and Windows Machines Talking Over ARP">
+      <meta name="twitter:site" content="@www.x.com/alt_maximus">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/arp_mac_windows_experiment/">
+    <link href="/style.min.e390ba7da26222f4dc42a349955d76dbbe44e5ce2535a43de5a70633a0a9ec3c.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
+</head>
+<body data-theme = "" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Blog
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/contact/">
+                        Contact
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-05-04T00:00:00&#43;00:00" itemprop="datePublished"> Sunday, May 4, 2025 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p>I have recently taken interest in networking.
+I was exploring how ARP works and came across an informative video from PowerCert YouTube channel.</p>
+<p>Link to the video: <a href="https://www.youtube.com/watch?v=cn8Zxh9bPio">https://www.youtube.com/watch?v=cn8Zxh9bPio</a></p>
+<h3 id="short-summary-of-arp">Short Summary of ARP</h3>
+<p>ARP is used for translating IP addresses to MAC addresses, which is crucial for devices to communicate on a local network.</p>
+<p>Before a machine X tries to send some packet to machine Y, machine X needs MAC address of machine Y. So machine X will invoke ARP to get the MAC address of machine Y.</p>
+<h3 id="one-step-further">One Step Further</h3>
+<h4 id="arp-cache">ARP Cache</h4>
+<p>Every machine has ARP cache.
+When a machine receives an ARP request, it will check its ARP cache to see if it already has the MAC address for the requested IP address. If it does, it will respond with the MAC address. If not, it will send out an ARP request to the network.</p>
+<p>So in this blog, I am trying to decipher how does ARP cache between two devices and any scope for communication between both of them.</p>
+<p><em>Note:</em> Both the devices are connected to the same network i.e. home wi-fi network.</p>
+<hr>
+<h2 id="objective">Objective</h2>
+<p>I have two partner devices:</p>
+<ul>
+<li><strong>Device 1</strong>: MacBook Pro</li>
+<li><strong>Device 2</strong>: Windows machine</li>
+</ul>
+<p>My goal: get each device’s MAC and IP address into the ARP cache of the other.</p>
+<hr>
+<h3 id="step-1-check-ip-address-on-windows">Step 1: Check IP Address on Windows</h3>
+<p><strong>Command (Windows CMD):</strong></p>
+<pre tabindex="0"><code>ipconfig
+</code></pre><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Wireless LAN adapter WiFi:
+
+   IPv4 Address. . . . . . . . . . . : 192.168.31.190
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 192.168.31.1
+</code></pre><hr>
+<h3 id="step-2-clear-arp-cache-on-windows">Step 2: Clear ARP Cache on Windows</h3>
+<p><strong>Command:</strong></p>
+<pre tabindex="0"><code>netsh interface ip delete arpcache
+</code></pre><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Ok.
+</code></pre><hr>
+<h3 id="step-3-check-ip-address-on-macos">Step 3: Check IP Address on macOS</h3>
+<p><strong>Command (macOS Terminal):</strong></p>
+<pre tabindex="0"><code>ifconfig | grep inet
+</code></pre><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>inet 192.168.31.216 netmask 0xffffff00 broadcast 192.168.31.255
+</code></pre><hr>
+<h3 id="step-4-clear-arp-cache-on-macos">Step 4: Clear ARP Cache on macOS</h3>
+<p><strong>Command:</strong></p>
+<pre tabindex="0"><code>sudo arp -a -d
+</code></pre><p><strong>Output (sample):</strong></p>
+<pre tabindex="0"><code>192.168.31.1 (192.168.31.1) deleted
+192.168.31.190 (192.168.31.190) deleted
+192.168.31.255 (192.168.31.255) deleted
+</code></pre><p><em>Note:</em> I masked the MAC addresses here for privacy.</p>
+<hr>
+<h3 id="step-5-ping-windows-from-macbook">Step 5: Ping Windows from MacBook</h3>
+<p><strong>Command (macOS Terminal):</strong></p>
+<pre tabindex="0"><code>ping 192.168.31.190
+</code></pre><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>PING 192.168.31.190 (192.168.31.190): 56 data bytes
+Request timeout for icmp_seq 0
+Request timeout for icmp_seq 1
+Request timeout for icmp_seq 2
+...
+</code></pre><p>Meanwhile, checking the Windows ARP cache:</p>
+<p><strong>Command (Windows CMD):</strong></p>
+<pre tabindex="0"><code>arp -a
+</code></pre><p><strong>Output:</strong></p>
+<pre tabindex="0"><code>Interface: 192.168.31.190 --- 0x2
+  Internet Address      Physical Address      Type
+  192.168.31.1          98-87-4c-37-25-1d     dynamic
+  (No entry yet for MacBook)
+</code></pre><hr>
+<h3 id="step-6-traceroute-from-macbook-to-windows">Step 6: Traceroute from MacBook to Windows</h3>
+<p><strong>Command (macOS Terminal):</strong></p>
+<pre tabindex="0"><code>traceroute 192.168.31.190
+</code></pre><p><strong>Output (trimmed):</strong></p>
+<pre tabindex="0"><code>traceroute to 192.168.31.190 (192.168.31.190), 64 hops max
+ 1  * * *
+ 2  * * *
+ 3  * * *
+...
+16  * * *
+</code></pre><p>After this, I checked the Windows ARP cache again and finally found the MacBook’s entry.</p>
+<hr>
+<h3 id="step-7-verify-arp-cache-on-both-machines">Step 7: Verify ARP Cache on Both Machines</h3>
+<p><strong>Windows (CMD):</strong></p>
+<pre tabindex="0"><code>arp -a
+</code></pre><p><strong>Sample Output:</strong></p>
+<pre tabindex="0"><code>Interface: 192.168.31.190 --- 0x2
+  192.168.31.216        XX-XX-XX-XX-XX-b0     dynamic (MacBook)
+</code></pre><p><strong>macOS (Terminal):</strong></p>
+<pre tabindex="0"><code>arp -a
+</code></pre><p><strong>Sample Output:</strong></p>
+<pre tabindex="0"><code>? (192.168.31.190) at XX:XX:XX:XX:XX:a9 on en0 ifscope [ethernet] (Windows)
+</code></pre><p><em>Note:</em> MAC addresses are masked for privacy.</p>
+<hr>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>I enjoyed digging into the rabbit hole and experimenting with ARP.</p>
+<p>Next time, I’m planning to dig a little deeper, maybe exploring how firewall rules affect ARP or how to sniff these packets directly.</p>
+<p>If that sounds interesting, let me know — I’d love to share the next round of findings!</p>
+<p>You can reach out to me at <a href="https://twitter.com/sitasp0">sitasp0</a> on Twitter.</p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2025 Satish Patra.
+        
+    </small>
+</footer>
+
+
+
+
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>

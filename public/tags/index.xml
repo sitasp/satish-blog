@@ -1,14 +1,221 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Satish&#39;s Scribbles</title>
     <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Satish&#39;s Scribbles</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <managingEditor>satish.patra@protonmail.com (Satish Patra)</managingEditor>
-    <webMaster>satish.patra@protonmail.com (Satish Patra)</webMaster>
     <copyright>Satish Patra</copyright>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ctf</title>
+      <link>http://localhost:1313/tags/ctf/</link>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/ctf/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Jinja2</title>
+      <link>http://localhost:1313/tags/jinja2/</link>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/jinja2/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/python/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Root-Me</title>
+      <link>http://localhost:1313/tags/root-me/</link>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/root-me/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>SSTI</title>
+      <link>http://localhost:1313/tags/ssti/</link>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/ssti/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Walkthrough</title>
+      <link>http://localhost:1313/tags/walkthrough/</link>
+      <pubDate>Thu, 11 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/walkthrough/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Cybersecurity</title>
+      <link>http://localhost:1313/tags/cybersecurity/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/cybersecurity/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>FreeMarker</title>
+      <link>http://localhost:1313/tags/freemarker/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/freemarker/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>http://localhost:1313/tags/java/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/java/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>PicoCTF</title>
+      <link>http://localhost:1313/tags/picoctf/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/picoctf/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RCE</title>
+      <link>http://localhost:1313/tags/rce/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/rce/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>RootMe</title>
+      <link>http://localhost:1313/tags/rootme/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/rootme/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Load-Testing</title>
+      <link>http://localhost:1313/tags/load-testing/</link>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/load-testing/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>LoadTesting</title>
+      <link>http://localhost:1313/tags/loadtesting/</link>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/loadtesting/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ARP</title>
+      <link>http://localhost:1313/tags/arp/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/arp/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>HomeLab</title>
+      <link>http://localhost:1313/tags/homelab/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/homelab/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>MacAndWindows</title>
+      <link>http://localhost:1313/tags/macandwindows/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/macandwindows/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>NetworkingBasics</title>
+      <link>http://localhost:1313/tags/networkingbasics/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/networkingbasics/</guid>
+      
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>TechExperiment</title>
+      <link>http://localhost:1313/tags/techexperiment/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/tags/techexperiment/</guid>
+      
+      <description></description>
+      
+    </item>
+    
   </channel>
 </rss>

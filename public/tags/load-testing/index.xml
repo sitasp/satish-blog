@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Load-Testing on Satish&#39;s Scribbles</title>
+    <link>http://localhost:1313/tags/load-testing/</link>
+    <description>Recent content in Load-Testing on Satish&#39;s Scribbles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Satish Patra</copyright>
+    <lastBuildDate>Wed, 14 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/load-testing/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pushing My Local Server to the Limit: Building a Load Testing CLI with `wrknoob`</title>
+      <link>http://localhost:1313/post/wrknoob/</link>
+      <pubDate>Wed, 14 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/wrknoob/</guid>
+      
+      <description>&lt;p&gt;Lately, I’ve been tuning a Quarkus backend and got curious: &lt;em&gt;How many concurrent requests can this thing actually handle?&lt;/em&gt; That’s when I stumbled upon &lt;a href=&#34;https://github.com/wg/wrk&#34;&gt;&lt;code&gt;wrk&lt;/code&gt;&lt;/a&gt;, a modern HTTP benchmarking tool that’s fast and flexible — but also a little unfriendly if you&amp;rsquo;re just starting out.&lt;/p&gt;
+&lt;p&gt;So I built a wrapper: &lt;strong&gt;&lt;code&gt;wrknoob&lt;/code&gt;&lt;/strong&gt; — a simple, noob-friendly Python CLI that wraps around &lt;code&gt;wrk&lt;/code&gt;, runs structured load tests, and shows beautiful terminal tables and plots. Here’s how it went.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

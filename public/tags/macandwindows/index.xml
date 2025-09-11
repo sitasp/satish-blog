@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MacAndWindows on Satish&#39;s Scribbles</title>
+    <link>http://localhost:1313/tags/macandwindows/</link>
+    <description>Recent content in MacAndWindows on Satish&#39;s Scribbles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Satish Patra</copyright>
+    <lastBuildDate>Sun, 04 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/macandwindows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>One Step Further Into ARP: Two Devices Talking Over ARP On My Home Network</title>
+      <link>http://localhost:1313/post/arp_mac_windows_experiment/</link>
+      <pubDate>Sun, 04 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/arp_mac_windows_experiment/</guid>
+      
+      <description>&lt;p&gt;I have recently taken interest in networking.
+I was exploring how ARP works and came across an informative video from PowerCert YouTube channel.&lt;/p&gt;
+&lt;p&gt;Link to the video: &lt;a href=&#34;https://www.youtube.com/watch?v=cn8Zxh9bPio&#34;&gt;https://www.youtube.com/watch?v=cn8Zxh9bPio&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;short-summary-of-arp&#34;&gt;Short Summary of ARP&lt;/h3&gt;
+&lt;p&gt;ARP is used for translating IP addresses to MAC addresses, which is crucial for devices to communicate on a local network.&lt;/p&gt;
+&lt;p&gt;Before a machine X tries to send some packet to machine Y, machine X needs MAC address of machine Y. So machine X will invoke ARP to get the MAC address of machine Y.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,122 +1,169 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-  <meta http-equiv="X-Clacks-Overhead" content="GNU Terry Pratchett" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="shortcut icon" href="http://localhost:1313/images/favicon.png" />
-<title>Hosting Hugo Site on GitHub Pages | Satish&#39;s Scribbles</title>
-<meta name="title" content="Hosting Hugo Site on GitHub Pages" />
-<meta name="description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions" />
-<meta name="author" content="" />
-<meta name="keywords" content="" />
+<title itemprop="name">Hosting Hugo Site on GitHub Pages | Satish&#39;s Scribbles</title>
+<meta property="og:title" content="Hosting Hugo Site on GitHub Pages | Satish&#39;s Scribbles" />
+<meta name="twitter:title" content="Hosting Hugo Site on GitHub Pages | Satish&#39;s Scribbles" />
+<meta itemprop="name" content="Hosting Hugo Site on GitHub Pages | Satish&#39;s Scribbles" />
+<meta name="application-name" content="Hosting Hugo Site on GitHub Pages | Satish&#39;s Scribbles" />
+<meta property="og:site_name" content="" />
 
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<meta property="og:title" content="Hosting Hugo Site on GitHub Pages" />
+<meta name="description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions">
+<meta itemprop="description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions" />
 <meta property="og:description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/host-hugo-blog-on-github-pages/" />
+<meta name="twitter:description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions" />
 
-<meta property="og:image" content="http://localhost:1313/images/social_card_bg_hu10083280876698994.webp"/><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2025-01-05T23:31:30+05:30" />
-<meta property="article:modified_time" content="2025-01-05T23:31:30+05:30" /><meta property="og:site_name" content="Satish&#39;s Scribbles" />
-<meta property="fb:admins" content="0000000000" />
+<meta property="og:locale" content="en-US" />
+<meta name="language" content="en-US" />
 
-
-
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/images/social_card_bg_hu10083280876698994.webp"/>
-<meta name="twitter:title" content="Hosting Hugo Site on GitHub Pages"/>
-<meta name="twitter:description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions"/>
-<meta name="twitter:site" content="@www.x.com/alt_maximus"/>
+  <link rel="alternate" hreflang="en" href="http://localhost:1313/post/host-hugo-blog-on-github-pages/" title="en-US 🇺🇸" />
 
 
 
-<meta itemprop="name" content="Hosting Hugo Site on GitHub Pages">
-<meta itemprop="description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions"><meta itemprop="datePublished" content="2025-01-05T23:31:30+05:30" />
-<meta itemprop="dateModified" content="2025-01-05T23:31:30+05:30" />
-<meta itemprop="wordCount" content="577">
-
-<meta itemprop="image" content="http://localhost:1313/images/social_card_bg_hu10083280876698994.webp"/>
 
 
-<meta itemprop="keywords" content="" />
 
-<meta name="referrer" content="no-referrer-when-downgrade" />
+<meta name="generator" content="Hugo 0.150.0">
 
-  
-  <link href="/original.min.css" rel="stylesheet">
-
-  
     
-    <link href="/syntax.min.css" rel="stylesheet">
-  
+    <meta property="og:url" content="http://localhost:1313/post/host-hugo-blog-on-github-pages/">
+  <meta property="og:site_name" content="Satish&#39;s Scribbles">
+  <meta property="og:title" content="Hosting Hugo Site on GitHub Pages">
+  <meta property="og:description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2025-01-05T23:31:30+05:30">
+    <meta property="article:modified_time" content="2025-01-05T23:31:30+05:30">
+    <meta property="og:image" content="http://localhost:1313/images/share.webp">
+        <meta property="fb:admins" content="0000000000">
 
-  
 
-  
+    
+    
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="http://localhost:1313/images/share.webp">
+  <meta name="twitter:title" content="Hosting Hugo Site on GitHub Pages">
+  <meta name="twitter:description" content="A step-by-step guide to deploying Hugo website on GitHub Pages using GitHub Actions">
+      <meta name="twitter:site" content="@www.x.com/alt_maximus">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/post/host-hugo-blog-on-github-pages/">
+    <link href="/style.min.e390ba7da26222f4dc42a349955d76dbbe44e5ce2535a43de5a70633a0a9ec3c.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg">
+    <link rel="shortcut icon" href="/favicon.ico">
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
+
+    
+    
 </head>
+<body data-theme = "" class="notransition">
 
-<body>
-  <header><a class="skip-link" href="#main-content">Skip to main content</a>
+<script src="/js/theme.js"></script>
 
-<a href="/" class="title"><h1>Satish&#39;s Scribbles</h1></a>
-<nav>
-  <a href="/">Home</a>
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        <a href="http://localhost:1313/" class="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" 
+viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+stroke-linejoin="round" class="feather feather-home">
+<title></title>
+<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+<polyline points="9 22 9 12 15 12 15 22"></polyline>
+</svg>
+        </a>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
 
-  <a href="/">About</a>
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/blog/">
+                        Blog
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/contact/">
+                        Contact
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
 
-  <a href="/blog/">Blog</a>
-
-  <a href="/contact/">Contact</a>
-
-<a href='http://localhost:1313/index.xml'>RSS</a>
-
-
-
-
-
-
-
-</nav>
-</header>
-  <main id="main-content">
-
-<h1>Hosting Hugo Site on GitHub Pages</h1>
-<p class="byline">
-  <time datetime='2025-01-05' pubdate>
-    Sunday, Jan 5, 2025
-  </time>
-  
-</p>
-
-<content>
-  <p>GitHub Pages provides an excellent free hosting solution for Hugo website. In this guide, We will walk through the process of setting up continuous deployment using GitHub Actions.</p>
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">Hosting Hugo Site on GitHub Pages</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-01-05T23:31:30&#43;05:30" itemprop="datePublished"> Sunday, Jan 5, 2025 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <p>GitHub Pages provides an excellent free hosting solution for Hugo website. In this guide, We will walk through the process of setting up continuous deployment using GitHub Actions.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>A Hugo website ready to deploy</li>
@@ -133,57 +180,32 @@
 <p>Initialize Hugo project as a Git repository:</p>
 </li>
 </ol>
-
-
-
-
-
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> my-hugo
 </span></span><span class="line"><span class="ln">2</span><span class="cl">git init
 </span></span><span class="line"><span class="ln">3</span><span class="cl">git add .
-</span></span><span class="line"><span class="ln">4</span><span class="cl">git commit -m <span class="s2">&#34;Initial commit&#34;</span></span></span></code></pre></div><ol start="3">
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git commit -m <span class="s2">&#34;Initial commit&#34;</span>
+</span></span></code></pre></div><ol start="3">
 <li>Add GitHub repository as the remote origin:</li>
 </ol>
-
-
-
-
-
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git remote add origin https://github.com/foo/foo.github.io.git</span></span></code></pre></div><h2 id="step-2-configure-hugo">Step 2: Configure Hugo</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git remote add origin https://github.com/foo/foo.github.io.git
+</span></span></code></pre></div><h2 id="step-2-configure-hugo">Step 2: Configure Hugo</h2>
 <ol>
 <li>Update <code>config.toml</code> (or <code>config.yaml</code>) file. Make sure baseURL matches GitHub Pages URL:</li>
 </ol>
-
-
-
-
-
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s2">&#34;https://foo.github.io/&#34;</span></span></span></code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nx">baseURL</span> <span class="p">=</span> <span class="s2">&#34;https://foo.github.io/&#34;</span>
+</span></span></code></pre></div><ol start="2">
 <li>Commit these changes:</li>
 </ol>
-
-
-
-
-
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add config.toml
-</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;Update baseURL for GitHub Pages&#34;</span></span></span></code></pre></div><h2 id="step-3-set-up-github-actions">Step 3: Set Up GitHub Actions</h2>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;Update baseURL for GitHub Pages&#34;</span>
+</span></span></code></pre></div><h2 id="step-3-set-up-github-actions">Step 3: Set Up GitHub Actions</h2>
 <ol>
 <li>Create a new directory structure in the repository:</li>
 </ol>
-
-
-
-
-
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">mkdir -p .github/workflows</span></span></code></pre></div><ol start="2">
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">mkdir -p .github/workflows
+</span></span></code></pre></div><ol start="2">
 <li>Create a new file named <code>.github/workflows/hugo.yaml</code> with the following content:</li>
 </ol>
-
-
-
-
-
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy Hugo site to Pages</span><span class="w">
 </span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">
 </span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
@@ -213,7 +235,7 @@
 </span></span></span><span class="line"><span class="ln">27</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Hugo CLI</span><span class="w">
 </span></span></span><span class="line"><span class="ln">28</span><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
 </span></span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="sd">          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="sd">          &amp;&amp; sudo dpkg -i ${{ runner.temp }}/hugo.deb</span><span class="w">          
+</span></span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="sd">          &amp;&amp; sudo dpkg -i ${{ runner.temp }}/hugo.deb</span><span class="w">
 </span></span></span><span class="line"><span class="ln">31</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Install Dart Sass</span><span class="w">
 </span></span></span><span class="line"><span class="ln">32</span><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">sudo snap install dart-sass</span><span class="w">
 </span></span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout</span><span class="w">
@@ -232,7 +254,7 @@
 </span></span></span><span class="line"><span class="ln">46</span><span class="cl"><span class="sd">          hugo \
 </span></span></span><span class="line"><span class="ln">47</span><span class="cl"><span class="sd">            --gc \
 </span></span></span><span class="line"><span class="ln">48</span><span class="cl"><span class="sd">            --minify \
-</span></span></span><span class="line"><span class="ln">49</span><span class="cl"><span class="sd">            --baseURL &#34;${{ steps.pages.outputs.base_url }}/&#34;</span><span class="w">          
+</span></span></span><span class="line"><span class="ln">49</span><span class="cl"><span class="sd">            --baseURL &#34;${{ steps.pages.outputs.base_url }}/&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="ln">50</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Upload artifact</span><span class="w">
 </span></span></span><span class="line"><span class="ln">51</span><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/upload-pages-artifact@v2</span><span class="w">
 </span></span></span><span class="line"><span class="ln">52</span><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
@@ -247,7 +269,8 @@
 </span></span></span><span class="line"><span class="ln">61</span><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="ln">62</span><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to GitHub Pages</span><span class="w">
 </span></span></span><span class="line"><span class="ln">63</span><span class="cl"><span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l">deployment</span><span class="w">
-</span></span></span><span class="line"><span class="ln">64</span><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/deploy-pages@v3</span></span></span></code></pre></div><h2 id="step-4-enable-github-pages">Step 4: Enable GitHub Pages</h2>
+</span></span></span><span class="line"><span class="ln">64</span><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/deploy-pages@v3</span><span class="w">
+</span></span></span></code></pre></div><h2 id="step-4-enable-github-pages">Step 4: Enable GitHub Pages</h2>
 <ol>
 <li>Go to the repository settings on GitHub</li>
 <li>Navigate to &ldquo;Pages&rdquo; in the sidebar</li>
@@ -260,14 +283,10 @@
 </ol>
 <h2 id="step-5-push-the-changes">Step 5: Push the Changes</h2>
 <p>Push all the changes to GitHub:</p>
-
-
-
-
-
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add .
 </span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;Add GitHub Actions workflow&#34;</span>
-</span></span><span class="line"><span class="ln">3</span><span class="cl">git push -u origin main</span></span></code></pre></div><h2 id="step-6-verify-deployment">Step 6: Verify Deployment</h2>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git push -u origin main
+</span></span></code></pre></div><h2 id="step-6-verify-deployment">Step 6: Verify Deployment</h2>
 <ol>
 <li>Go to the repository&rsquo;s &ldquo;Actions&rdquo; tab on GitHub</li>
 <li>We should see our workflow running</li>
@@ -299,26 +318,31 @@
 <p>We now have a fully automated deployment pipeline for our Hugo site using GitHub Pages and GitHub Actions. Any changes we push to our main branch will automatically trigger a new build and deployment.</p>
 <p>Please refer to the <a href="https://gohugo.io/documentation/">official Hugo documentation</a> and <a href="https://docs.github.com/en/pages">GitHub Pages documentation</a> for more detailed information.</p>
 
-</content>
-<p>
-  
-</p>
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+</div>
+    <small class="footer_copyright">
+        © 2025 Satish Patra.
+        
+    </small>
+</footer>
 
 
-  <p>
-    <a href='mailto:satish.patra@protonmail.com?subject=Reply%20to%20"Hosting%20Hugo%20Site%20on%20GitHub%20Pages"'>
-      Reply to this post by email ↪
-    </a>
-  </p>
 
 
 
-  </main>
-  <footer><footer>
-  <p>© 2025 Satish Patra ; Powered by <a href="https://gohugo.io">Hugo</a> &amp; <a href="https://github.com/clente/hugo-bearcub">Bear Cub</a></p>
-</footer></footer>
+
 
     
-</body>
+    <script async src="http://localhost:1313/js/main.js" ></script>
 
+    
+
+</body>
 </html>

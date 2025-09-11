@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cybersecurity on Satish&#39;s Scribbles</title>
+    <link>http://localhost:1313/tags/cybersecurity/</link>
+    <description>Recent content in Cybersecurity on Satish&#39;s Scribbles</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>Satish Patra</copyright>
+    <lastBuildDate>Tue, 09 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/cybersecurity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deepening My SSTI Knowledge: Java SSTI on Root-Me</title>
+      <link>http://localhost:1313/post/ssti-study-and-rootme-challenge/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/ssti-study-and-rootme-challenge/</guid>
+      
+      <description>&lt;p&gt;After my first taste of Server-Side Template Injection (SSTI) with the PicoCTF challenge, I was hooked. It was a relatively straightforward introduction, and it left me wanting to learn more. This post documents my journey of diving deeper into SSTI, from studying the theory to solving a more complex challenge on Root-Me.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;broadening-my-ssti-understanding&#34;&gt;Broadening My SSTI Understanding&lt;/h2&gt;
+&lt;p&gt;I started by consuming as much information as I could find on SSTI. Here are some of the resources I found most helpful:&lt;/p&gt;</description>
+      
+    </item>
+    
+    <item>
+      <title>My First SSTI Adventure: A PicoCTF Walkthrough</title>
+      <link>http://localhost:1313/post/picoctf-ssti-journey/</link>
+      <pubDate>Tue, 09 Sep 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/picoctf-ssti-journey/</guid>
+      
+      <description>&lt;p&gt;I recently dove into the world of Server-Side Template Injection (SSTI) and it was a blast! I decided to tackle a PicoCTF challenge to test my skills, and it turned out to be a fantastic learning experience. Here’s a breakdown of my journey from finding the vulnerability to getting the flag, as it happened.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;what-is-ssti&#34;&gt;What is SSTI?&lt;/h2&gt;
+&lt;p&gt;SSTI, or Server-Side Template Injection, is a vulnerability that occurs when an attacker can inject malicious code into a template, which is then executed on the server. This can lead to serious consequences, including Remote Code Execution (RCE), allowing the attacker to run arbitrary commands on the server.&lt;/p&gt;</description>
+      
+    </item>
+    
+  </channel>
+</rss>
