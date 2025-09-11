@@ -1,12 +1,4 @@
 +++ 
-title = "From Detection to Flag: A Deep Dive into Jinja2 SSTI on Root-Me" 
-description = "A step-by-step walkthrough of solving a Python SSTI challenge on Root-Me, from initial detection to crafting a context-free Jinja2 payload for code execution." 
-date = "2025-09-11" 
-draft = false 
-tags = ['ssti', 'ctf', 'python', 'jinja2', 'root-me', 'walkthrough'] 
-+++
-
-+++ 
 title = "From Detection to Flag: A Deep Dive into Jinja2 SSTI on Root-Me"
 description = "A step-by-step walkthrough of solving a Python SSTI challenge on Root-Me, from initial detection to crafting a context-free Jinja2 payload for code execution."
 date = "2025-09-11"
