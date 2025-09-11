@@ -1,6 +1,6 @@
 ---
 title: "Contact Me"
-date: 2025-09-11T12:00:00+00:00
+date: 2025-09-10T00:00:00+00:00
 ---
 
 You can reach me on:
