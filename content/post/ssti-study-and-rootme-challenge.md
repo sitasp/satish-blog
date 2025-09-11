@@ -93,6 +93,8 @@ The exception clearly identified the template engine as **FreeMarker**.
 
 Now that I knew I was dealing with FreeMarker, I started researching ways to achieve RCE. I found that the `freemarker.template.utility.Execute` class could be used to run shell commands.
 
+Execute class implements TemplateModel which allows hacker to create 'Execute' instance and execute any shell commands.
+
 My first attempt to use it failed, likely due to a syntax error or issues with URL encoding:
 
 ```freemarker
