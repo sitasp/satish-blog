@@ -187,10 +187,3 @@ Success! I found the flag.
 ## Final Thoughts
 
 This challenge was a great exercise in moving beyond simple, context-dependent SSTI payloads. The journey was just as important as the result. By hitting a wall with `os.popen`, taking the time to understand the object graph with BFS, and clarifying fundamental Python concepts, I was able to build a short, reliable, and context-free gadget for code execution. It highlights the importance of deep-diving into the framework you're targeting and not being afraid to go back to the basics.
-
----
-
-## Related Posts
-
-*   [My First SSTI Adventure: A PicoCTF Walkthrough](/post/picoctf-ssti-journey/)
-*   [Deepening My SSTI Knowledge: Java SSTI on Root-Me](/post/ssti-study-and-rootme-challenge/)
